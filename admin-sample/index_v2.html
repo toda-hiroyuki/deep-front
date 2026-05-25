@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TourOption / 商品ページ 管理UIプロトタイプ v2（Phase 1）</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="side-nav" aria-label="商品管理ナビゲーション">
+        <div class="brand-block">
+          <div class="brand-mark">D</div>
+          <div>
+            <div class="brand-name">Deep Product</div>
+            <div class="brand-caption">MVP Admin · Phase 1</div>
+          </div>
+        </div>
+        <nav class="nav-group">
+          <button class="nav-item active" type="button" data-resource="tourOption">
+            <span class="nav-icon">TO</span>
+            <span>TourOption</span>
+          </button>
+          <button class="nav-item" type="button" data-resource="productPage">
+            <span class="nav-icon">PG</span>
+            <span>商品ページ</span>
+          </button>
+          <button class="nav-item" type="button" data-resource="guideDoc">
+            <span class="nav-icon">GD</span>
+            <span>ガイド資料</span>
+          </button>
+        </nav>
+        <div class="side-note">
+          <span class="note-label">Phase 1 設計原則</span>
+          <p>同じTourOptionを複数ページに紐付ける場合、全ページで同じ表示内容を使います。ページごとの見せ方変更は将来フェーズで設計します。</p>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Product & Sales MVP · Phase 1</p>
+            <h1 id="screenTitle">TourOption 作成・編集・確認</h1>
+          </div>
+          <div class="mode-switch" role="tablist" aria-label="画面モード">
+            <button class="mode-button active" type="button" data-mode="create">作成</button>
+            <button class="mode-button" type="button" data-mode="edit">編集</button>
+            <button class="mode-button" type="button" data-mode="review">確認</button>
+          </div>
+        </header>
+
+        <section class="status-strip" aria-label="現在の対象">
+          <div class="status-cell">
+            <span class="status-label">内部ID</span>
+            <strong id="summaryId">TO-自動採番</strong>
+          </div>
+          <div class="status-cell">
+            <span class="status-label">業務コード / URL</span>
+            <strong id="summaryCode">G-KYO-003-1-PR</strong>
+          </div>
+          <div class="status-cell">
+            <span class="status-label">ステータス</span>
+            <strong id="summaryStatus">下書き</strong>
+          </div>
+          <div class="status-actions">
+            <button class="icon-button" type="button" aria-label="前の対象へ">‹</button>
+            <button class="icon-button" type="button" aria-label="次の対象へ">›</button>
+            <button class="primary-action" type="button" id="primaryAction">下書き保存</button>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section class="editor-pane" aria-label="編集エリア">
+            <div class="tab-row" id="tabRow" role="tablist" aria-label="入力タブ"></div>
+            <div id="editorContent" class="editor-content"></div>
+          </section>
+
+          <aside class="preview-pane" aria-label="プレビューと確認">
+            <div class="preview-header">
+              <div>
+                <p class="eyebrow">Live Preview</p>
+                <h2 id="previewTitle">TourOption表示</h2>
+              </div>
+              <span class="preview-badge" id="previewModeBadge">作成中</span>
+            </div>
+            <div id="previewContent" class="preview-content"></div>
+            <div class="check-area">
+              <div class="check-heading">
+                <h3>公開前チェック</h3>
+                <span id="checkCount">6 / 8</span>
+              </div>
+              <div id="checkList" class="check-list"></div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script src="./app_v2.js"></script>
+  </body>
+</html>
